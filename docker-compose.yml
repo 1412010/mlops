@@ -9,9 +9,9 @@ services:
       - 6789:6789
     volumes:
       # Mount your local codebase to the container.
-      - .:/$MAGE_CODE_PATH
+      - "${PWD}:/${MAGE_CODE_PATH}"
       # Store the data output on local machine to easily debug (optional).
-      - ~/.mage_data:/$MAGE_CODE_PATH/mage_data
+      - ~/.mage_data:/${MAGE_CODE_PATH}/mage_data
       # Initial credentials to create an IAM user with limited permissions for deployment.
       - ~/.aws:/root/.aws
       # Local machine’s SSH keys to pull and push to your GitHub repository.
